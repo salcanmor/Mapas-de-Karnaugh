@@ -1,5 +1,7 @@
 # Mapas de Karnaugh y transformación de la función en mintérminos y maxtérminos
 
+[![DOI](https://zenodo.org/badge/991594273.svg)](https://doi.org/10.5281/zenodo.15530853)
+
 Se presenta un programa para simplificar expresiones de álgebra booleana mediante mapas de Karnaugh. +Info en [Mapa de Karnaugh (Wikipedia)](https://en.wikipedia.org/wiki/Karnaugh_map).
 
 ## Introducción
