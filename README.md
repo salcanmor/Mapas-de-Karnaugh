@@ -19,6 +19,41 @@ La función se divide en dos etapas:
 1. **Simplificación**: se comprimen todos los términos hasta que ya no se pueda simplificar ninguno más. La salida de ejemplo en este paso es:
    ```python
    ['10**', '1*0*', '1**0', '*110']
+   ```
+   que equivale a la expresión booleana `AB' + AC' + AD' + BCD'`.
+
+2. **Selección final**: se revisa el `source` de cada término. Si el origen de un término no incluye al menos una fuente única, o bien todas sus fuentes corresponden a términos “don't care”, ese término se considera innecesario y se elimina. El resultado que queda tras este filtrado es la forma mínima definitiva.
+
+## Ejemplo
+
+En la página de la wiki (enlazada más arriba) aparece una tabla de verdad que puede representarse como:
+
+- `f(A,B,C,D) = Σ(6,8,9,10,11,12,13,14)`  
+- `f(A,B,C,D) = A'BCD' + AB'C'D' + AB'C'D + AB'CD' + AB'CD + ABC'D' + ABC'D + ABCD'`  
+  (donde A' significa ¬A)
+
+Para reproducirlo en el código, asigna:
+
+```python
+minterms = ['0110', '1000', '1001', '1010', '1011', '1100', '1101', '1110']
+```
+
+Luego ejecuta en tu terminal:
+
+```bash
+python3 Kmap.py
+```
+
+Verás la salida:
+
+```python
+['10**', '1*0*', '*110']
+```
+
+(el asterisco `*` indica que la variable en esa posición ha sido simplificada). Esta salida equivale a `AB' + AC' + BCD'`, que coincide con el resultado de la wiki.
+
+Para incluir condiciones “don't care”, basta con añadir esos términos en la lista `not_care` y ejecutar de nuevo el código.
+
 
 ### Autor
 
